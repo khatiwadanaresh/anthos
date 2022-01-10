@@ -2,9 +2,3 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: antho-config
----
-apiVersion: v1/app2
-kind: Namespace
-metadata:
-  name: demo-ns
----
