@@ -1,10 +1,18 @@
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
+metadata:
+  name: ingress-gateway-internal
 spec:
+  profile: empty # Do not install CRDs or the control plane
   components:
     ingressGateways:
-    - name: istio-ingressgateway-internal
+    - name: ingressgateway-internal
+      namespace: istio-system
       enabled: true
+      label:
+        # Set a unique label for the gateway. This is required to ensure Gateways
+        # can select this workload
+        istio: ingressgateway-internal
       k8s:
         serviceAnnotations:
           cloud.google.com/load-balancer-type: "internal"
