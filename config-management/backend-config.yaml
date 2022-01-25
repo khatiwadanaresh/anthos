@@ -31,8 +31,7 @@ metadata:
     networking.gke.io/v1beta1.FrontendConfig: ssl-frontend-config
 spec:
   rules:
-    - host: *
-      http:
+    - http:
         paths:
           - path: "/*"
             pathType: Prefix
@@ -53,8 +52,7 @@ metadata:
     networking.gke.io/v1beta1.FrontendConfig: ssl-frontend-config
 spec:
   rules:
-    - host: *
-      http:
+    - http:
         paths:
           - path: "/*"
             pathType: Prefix
