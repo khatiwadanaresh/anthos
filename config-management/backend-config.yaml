@@ -1,3 +1,16 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: istio-ingressgateway-config
+  namespace: istio-istio-system
+spec:
+  securityPolicy:
+    name: owasp-enabled-private-telus-ip-filter-allow
+  healthCheck:
+    checkIntervalSec: 30
+    port: 15021
+    type: HTTP
+    requestPath: /healthz/ready
 ---
 apiVersion: cloud.google.com/v1
 kind: BackendConfig
