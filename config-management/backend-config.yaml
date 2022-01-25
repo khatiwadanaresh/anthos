@@ -62,11 +62,12 @@ metadata:
   name: istio-ingressgateway-config
   namespace: istio-telus
 spec:
+  timeoutSec: 120
   securityPolicy:
     name: owasp-modsecurity-enabled
   healthCheck:
-    checkIntervalSec: 30
+    checkIntervalSec: 10
     port: 15021
     type: HTTP
     requestPath: /healthz/ready
-    timeoutSec: 20
+    timeoutSec: 2
