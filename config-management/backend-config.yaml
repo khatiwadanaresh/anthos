@@ -23,27 +23,6 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-public
-  namespace: istio-system
-  annotations:
-    #kubernetes.io/ingress.global-static-ip-name: kong-static-ip-np
-    ingress.gcp.kubernetes.io/pre-shared-cert: ssl-cert-dev
-    networking.gke.io/v1beta1.FrontendConfig: ssl-frontend-config
-spec:
-  rules:
-    - http:
-        paths:
-          - path: "/*"
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: istio-ingressgateway
-                port:
-                  number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
   name: ingress-telus
   namespace: istio-telus
   annotations:
