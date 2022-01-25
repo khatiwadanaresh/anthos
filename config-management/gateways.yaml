@@ -9,14 +9,3 @@ spec:
     port: 15021
     type: HTTP
     requestPath: /healthz/ready
----
-apiVersion: install.istio.io/v1alpha1
-kind: IstioOperator
-spec:
-  components:
-    ingressGateways:
-      - name: istio-ingressgateway-internal
-        enabled: true
-         k8s:
-           serviceAnnotations:
-             cloud.google.com/backend-config: '{"default": "istio-ingressgateway-config"}
