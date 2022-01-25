@@ -12,6 +12,9 @@ spec:
 ---
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
+metadata:
+  name: istio-ingressgateway
+  namespace: istio-system
 spec:
   components:
     ingressGateways:
