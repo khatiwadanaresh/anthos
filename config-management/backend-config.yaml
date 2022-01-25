@@ -68,6 +68,7 @@ metadata:
   name: istio-ingressgateway-config
   namespace: istio-system
 spec:
+  timeoutSec: 20
   securityPolicy:
     name: owasp-enabled-private-telus-ip-filter-allow
   healthCheck:
@@ -82,6 +83,7 @@ metadata:
   name: istio-ingressgateway-config
   namespace: istio-telus
 spec:
+  timeoutSec: 20
   securityPolicy:
     name: owasp-modsecurity-enabled
   healthCheck:
