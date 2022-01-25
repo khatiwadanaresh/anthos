@@ -34,7 +34,7 @@ spec:
     - http:
         paths:
           - path: "/*"
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: istio-ingressgateway
@@ -55,7 +55,7 @@ spec:
     - http:
         paths:
           - path: "/*"
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: ingressgateway-telus
