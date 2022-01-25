@@ -4,6 +4,8 @@ metadata:
   name: istio-ingressgateway-config
   namespace: istio-system
 spec:
+  securityPolicy:
+    name: owasp-enabled-private-telus-ip-filter-allow
   healthCheck:
     checkIntervalSec: 30
     port: 15021
@@ -16,6 +18,8 @@ metadata:
   name: istio-ingressgateway-config
   namespace: istio-telus
 spec:
+  securityPolicy:
+    name: owasp-modsecurity-enabled
   healthCheck:
     checkIntervalSec: 30
     port: 15021
