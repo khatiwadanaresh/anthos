@@ -11,3 +11,35 @@ spec:
     requestPath: /healthz/ready
 ---
 
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: ingress-gateways
+  profile: empty # Do not install CRDs or the control plane
+  components:
+    ingressGateways:
+    - name: ingressgateway-internal
+      namespace: istio-internal
+      enabled: true
+      label:
+        # Set a unique label for the gateway. This is required to ensure Gateways
+        # can select this workload
+        istio: ingressgateway-internal
+      k8s:
+        serviceAnnotations:
+          cloud.google.com/load-balancer-type: "internal"
+        service:
+          ports:
+          - name: status-port
+            port: 15020
+          - name: http2
+            port: 80
+            targetPort: 8080
+          - name: https
+            port: 443
+            targetPort: 8443
+    - name: istio-ingressgateway-tn
+      namespace: istio-tn
+      enabled: true
+      label:
+        istio: ingressgateway-tn
