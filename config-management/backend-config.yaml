@@ -75,6 +75,7 @@ spec:
     port: 15021
     type: HTTP
     requestPath: /healthz/ready
+    timeoutSec: 20
 ---
 apiVersion: cloud.google.com/v1
 kind: BackendConfig
@@ -89,3 +90,4 @@ spec:
     port: 15021
     type: HTTP
     requestPath: /healthz/ready
+    timeoutSec: 20
