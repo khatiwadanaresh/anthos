@@ -51,7 +51,7 @@ metadata:
   namespace: istio-system
   annotations:
     #kubernetes.io/ingress.global-static-ip-name: kong-static-ip-np
-    ingress.gcp.kubernetes.io/pre-shared-cert: ssl-cert-prep
+    ingress.gcp.kubernetes.io/pre-shared-cert: ssl-cert-dev
     networking.gke.io/v1beta1.FrontendConfig: ssl-frontend-config
 spec:
   rules:
@@ -73,7 +73,7 @@ metadata:
   namespace: istio-telus
   annotations:
     #kubernetes.io/ingress.global-static-ip-name: kong-static-ip-np
-    ingress.gcp.kubernetes.io/pre-shared-cert: ssl-cert-prep
+    ingress.gcp.kubernetes.io/pre-shared-cert: ssl-cert-dev
     networking.gke.io/v1beta1.FrontendConfig: ssl-frontend-config
 spec:
   rules:
