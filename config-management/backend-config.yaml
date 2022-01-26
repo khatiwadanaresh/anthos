@@ -87,7 +87,7 @@ spec:
       paths:
       - backend:
           service:
-            name: ingressgateway-telus
+            name: ingressgateway
             port:
               number: 80
         path: /*
