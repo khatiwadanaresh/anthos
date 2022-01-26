@@ -50,3 +50,46 @@ spec:
     type: HTTP
     requestPath: /healthz/ready
     timeoutSec: 2
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.gcp.kubernetes.io/pre-shared-cert: ssl-cert-dev
+    networking.gke.io/v1beta1.FrontendConfig: ssl-frontend-config
+  name: telus-nw-ingress
+  namespace: istio-telus
+spec:
+  rules:
+  - host: '*.dev.n.svc.tv.telus.net'
+    http:
+      paths:
+      - backend:
+          service:
+            name: ingressgateway-telus
+            port:
+              number: 80
+        path: /*
+        pathType: ImplementationSpecific
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.gcp.kubernetes.io/pre-shared-cert: ssl-cert-dev
+    networking.gke.io/v1beta1.FrontendConfig: ssl-frontend-config
+  name: public-nw-ingress
+  namespace: istio-system
+spec:
+  rules:
+  - host: '*.dev.n.svc.tv.telus.net'
+    http:
+      paths:
+      - backend:
+          service:
+            name: ingressgateway-telus
+            port:
+              number: 80
+        path: /*
+        pathType: ImplementationSpecific
+
