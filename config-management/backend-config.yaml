@@ -27,7 +27,7 @@ metadata:
   namespace: istio-system
 spec:
   securityPolicy:
-    name: owasp-enabled-private-telus-ip-filter-allow
+    name: owasp-modsecurity-enabled
   healthCheck:
     checkIntervalSec: 30
     port: 15021
@@ -43,7 +43,7 @@ metadata:
 spec:
   timeoutSec: 120
   securityPolicy:
-    name: owasp-modsecurity-enabled
+    name: owasp-enabled-private-telus-ip-filter-allow
   healthCheck:
     checkIntervalSec: 10
     port: 15021
